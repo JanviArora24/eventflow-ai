@@ -8,8 +8,17 @@ from app.routes.predict import router as predict_router
 from app.routes.events_by_type import router as type_router
 from app.routes.events_by_zone import router as zone_router
 from app.routes.events_by_priority import router as priority_router
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(title="EventFlow AI")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 app.include_router(stats_router)
 app.include_router(heatmap_router)
