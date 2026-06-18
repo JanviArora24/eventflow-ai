@@ -17,7 +17,7 @@ function Heatmap() {
   }, []);
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div className="page-container" style={{ padding: "20px" }}>
       <h1>Event Hotspots Map</h1>
       <div
         style={{
