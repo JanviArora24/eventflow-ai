@@ -109,120 +109,64 @@ Model Evaluation
 FastAPI Deployment
 ```
 
-Model Performance
-Metric Value
-Model Random Forest Classifier
-Accuracy 91.74%
-Weighted F1 Score 0.91
-System Architecture
+## Machine Learning Pipeline
+
+```text
+Historical Event Data
+          ↓
+Data Cleaning & Preprocessing
+          ↓
+Congestion Score Generation
+          ↓
+Risk Classification
+          ↓
+Feature Encoding
+          ↓
+Random Forest Training
+          ↓
+Model Evaluation
+          ↓
+FastAPI Deployment
+```
+
+## Model Performance
+
+| Metric            | Value                    |
+| ----------------- | ------------------------ |
+| Model             | Random Forest Classifier |
+| Accuracy          | 91.74%                   |
+| Weighted F1 Score | 0.91                     |
+
+## System Architecture
+
+```text
 React Frontend
-↓
+      ↓
 FastAPI Backend
-↓
+      ↓
 Prediction API
-↓
+      ↓
 Random Forest Model
-↓
+      ↓
 Resource Recommendation Engine
-API Endpoints
-Dashboard Statistics
-GET /stats
-Analytics
-GET /events-by-type
-GET /events-by-zone
-GET /events-by-priority
-Heatmap
-GET /heatmap
-Prediction
-POST /predict
-Request:
+```
 
-{
-"event_type": "planned",
-"priority": "High",
-"event_cause": "vip_movement",
-"requires_road_closure": "True",
-"zone": "Central Zone 2"
-}
-Response:
+## API Endpoints
 
-{
-"predicted_risk": "Critical",
-"officers": 15,
-"barricades": 8
-}
-Project Structure
-eventflow-ai/
+### Dashboard Statistics
 
-├── backend/
-│ ├── app/
-│ │ ├── routes/
-│ │ └── main.py
-│ └── venv/
-│
-├── frontend/
-│ ├── src/
-│ │ ├── components/
-│ │ ├── pages/
-│ │ └── services/
-│
-├── ml/
-│ ├── training/
-│ ├── notebooks/
-│ └── saved_models/
-│
-├── data/
-│ └── processed/
-│
-└── README.md
-Installation
-Clone Repository
-git clone <repository-url>
-cd eventflow-ai
-Backend Setup
-cd backend
+* `GET /stats`
 
-python -m venv venv
+### Analytics
 
-venv\Scripts\activate
+* `GET /events-by-type`
+* `GET /events-by-zone`
+* `GET /events-by-priority`
 
-pip install -r requirements.txt
+### Heatmap
 
-uvicorn app.main:app --reload
-Backend runs on:
+* `GET /heatmap`
 
-http://127.0.0.1:8000
-Frontend Setup
-cd frontend
+### Prediction
 
-npm install
-
-npm run dev
-Frontend runs on:
-
-http://localhost:5173
-Demo Workflow
-Dashboard
-↓
-Analytics
-↓
-Heatmap
-↓
-Prediction
-↓
-Resource Recommendation
-Future Scope
-Live traffic API integration
-
-Diversion route suggestions
-
-Post-event feedback and model retraining
-
-Weather data integration
-
-Real-time GPS data integration
-
-Team
-EventFlow AI Team
-
-Built for intelligent, data-driven traffic management. 🚦
+* `POST /predict`
