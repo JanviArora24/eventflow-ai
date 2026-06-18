@@ -19,7 +19,7 @@ ChartJS.register(
   LinearScale,
   BarElement,
   Tooltip,
-  Legend
+  Legend,
 );
 
 function Analytics() {
@@ -73,20 +73,46 @@ function Analytics() {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div className="page-container" >
       <h1>Analytics Dashboard</h1>
 
-      <div style={{ maxWidth: "400px", marginBottom: "40px" }}>
+      <div
+        style={{
+          maxWidth: "400px",
+          margin: "0 auto 40px",
+          background: "#111827",
+          padding: "24px",
+          borderRadius: "16px",
+          boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
+        }}
+      >
         <h2>Events by Type</h2>
         <Pie data={pieData} />
       </div>
 
-      <div style={{ marginBottom: "40px" }}>
+      <div
+        style={{
+          marginBottom: "40px",
+          background: "#111827",
+          padding: "24px",
+          borderRadius: "16px",
+          boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
+        }}
+      >
         <h2>Events by Zone</h2>
         <Bar data={barData} />
       </div>
 
-      <div style={{ maxWidth: "400px" }}>
+      <div
+        style={{
+          maxWidth: "400px",
+          margin: "0 auto",
+          background: "#111827",
+          padding: "24px",
+          borderRadius: "16px",
+          boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
+        }}
+      >
         <h2>Events by Priority</h2>
         <Doughnut data={doughnutData} />
       </div>

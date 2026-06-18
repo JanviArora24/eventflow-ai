@@ -32,7 +32,15 @@ function Prediction() {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div
+      className="page-container"
+      style={{
+        padding: "20px",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
       <h1>Congestion Prediction</h1>
 
       <form onSubmit={handleSubmit}>
@@ -56,11 +64,20 @@ function Prediction() {
 
         <select name="event_cause" onChange={handleChange}>
           <option value="">Select Cause</option>
-          <option value="Accident">Accident</option>
-          <option value="Construction">Construction</option>
-          <option value="Festival">Festival</option>
-          <option value="Political Rally">Political Rally</option>
-          <option value="Sports Event">Sports Event</option>
+
+          <option value="accident">accident</option>
+          <option value="construction">construction</option>
+          <option value="congestion">congestion</option>
+          <option value="vehicle_breakdown">vehicle_breakdown</option>
+          <option value="public_event">public_event</option>
+          <option value="vip_movement">vip_movement</option>
+          <option value="procession">procession</option>
+          <option value="protest">protest</option>
+          <option value="water_logging">water_logging</option>
+          <option value="tree_fall">tree_fall</option>
+          <option value="pot_holes">pot_holes</option>
+          <option value="road_conditions">road_conditions</option>
+          <option value="others">others</option>
         </select>
 
         <br />
@@ -68,8 +85,8 @@ function Prediction() {
 
         <select name="requires_road_closure" onChange={handleChange}>
           <option value="">Road Closure?</option>
-          <option value="TRUE">TRUE</option>
-          <option value="FALSE">FALSE</option>
+          <option value="True">Yes</option>
+          <option value="False">No</option>
         </select>
 
         <br />
@@ -89,14 +106,51 @@ function Prediction() {
       </form>
 
       {result && (
-        <div style={{ marginTop: "20px" }}>
+        <div
+          style={{
+            marginTop: "30px",
+            background: "#111827",
+            padding: "24px",
+            borderRadius: "16px",
+            width: "320px",
+            textAlign: "center",
+            boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
+          }}
+        >
           <h2>Prediction Result</h2>
 
-          <p>Risk: {result.predicted_risk}</p>
+          <h3
+            style={{
+              color:
+                result.predicted_risk === "Critical"
+                  ? "#ef4444"
+                  : result.predicted_risk === "High"
+                    ? "#f97316"
+                    : result.predicted_risk === "Medium"
+                      ? "#eab308"
+                      : "#22c55e",
+              marginTop: "16px",
+            }}
+          >
+            Risk Level: {result.predicted_risk}
+          </h3>
 
-          <p>Officers: {result.officers}</p>
+          <p style={{ marginTop: "16px", fontSize: "18px" }}>
+            Officers Required: {result.officers}
+          </p>
 
-          <p>Barricades: {result.barricades}</p>
+          <p style={{ marginTop: "8px", fontSize: "18px" }}>
+            Barricades Required: {result.barricades}
+          </p>
+          <p
+            style={{
+              marginTop: "16px",
+              fontSize: "14px",
+              color: "#94a3b8",
+            }}
+          >
+            Prediction generated using historical Bengaluru traffic event data.
+          </p>
         </div>
       )}
     </div>

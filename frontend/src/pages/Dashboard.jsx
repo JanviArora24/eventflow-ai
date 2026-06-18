@@ -20,7 +20,7 @@ function Dashboard() {
   }
 
   return (
-    <div style={{ padding: "30px" }}>
+    <div className="page-container" style={{ padding: "30px" }}>
       <h1
         style={{
           textAlign: "center",

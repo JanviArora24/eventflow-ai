@@ -1,15 +1,20 @@
 import pandas as pd
 
-df = pd.read_csv("../../data/raw/events.csv")
+# df = pd.read_csv("../data/raw/events.csv")
 
-print("Shape:")
-print(df.shape)
+# print("Shape:")
+# print(df.shape)
 
-print("\nColumns:")
-print(df.columns.tolist())
+# print("\nColumns:")
+# print(df.columns.tolist())
 
-print("\nMissing Values:")
-print(df.isnull().sum())
+# print("\nMissing Values:")
+# print(df.isnull().sum())
 
-print("\nFirst 5 Rows:")
-print(df.head())
+# print("\nFirst 5 Rows:")
+# print(df.head())
+
+
+dof = pd.read_csv("../data/processed/scored_events.csv")
+
+print(dof["event_cause"].unique())
