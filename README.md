@@ -107,20 +107,22 @@ Random Forest Training
 Model Evaluation
           ↓
 FastAPI Deployment
+```
+
 Model Performance
-Metric	Value
-Model	Random Forest Classifier
-Accuracy	91.74%
-Weighted F1 Score	0.91
+Metric Value
+Model Random Forest Classifier
+Accuracy 91.74%
+Weighted F1 Score 0.91
 System Architecture
 React Frontend
-      ↓
+↓
 FastAPI Backend
-      ↓
+↓
 Prediction API
-      ↓
+↓
 Random Forest Model
-      ↓
+↓
 Resource Recommendation Engine
 API Endpoints
 Dashboard Statistics
@@ -136,41 +138,41 @@ POST /predict
 Request:
 
 {
-  "event_type": "planned",
-  "priority": "High",
-  "event_cause": "vip_movement",
-  "requires_road_closure": "True",
-  "zone": "Central Zone 2"
+"event_type": "planned",
+"priority": "High",
+"event_cause": "vip_movement",
+"requires_road_closure": "True",
+"zone": "Central Zone 2"
 }
 Response:
 
 {
-  "predicted_risk": "Critical",
-  "officers": 15,
-  "barricades": 8
+"predicted_risk": "Critical",
+"officers": 15,
+"barricades": 8
 }
 Project Structure
 eventflow-ai/
 
 ├── backend/
-│   ├── app/
-│   │   ├── routes/
-│   │   └── main.py
-│   └── venv/
+│ ├── app/
+│ │ ├── routes/
+│ │ └── main.py
+│ └── venv/
 │
 ├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   └── services/
+│ ├── src/
+│ │ ├── components/
+│ │ ├── pages/
+│ │ └── services/
 │
 ├── ml/
-│   ├── training/
-│   ├── notebooks/
-│   └── saved_models/
+│ ├── training/
+│ ├── notebooks/
+│ └── saved_models/
 │
 ├── data/
-│   └── processed/
+│ └── processed/
 │
 └── README.md
 Installation
@@ -201,13 +203,13 @@ Frontend runs on:
 http://localhost:5173
 Demo Workflow
 Dashboard
-   ↓
+↓
 Analytics
-   ↓
+↓
 Heatmap
-   ↓
+↓
 Prediction
-   ↓
+↓
 Resource Recommendation
 Future Scope
 Live traffic API integration
@@ -224,4 +226,3 @@ Team
 EventFlow AI Team
 
 Built for intelligent, data-driven traffic management. 🚦
-
