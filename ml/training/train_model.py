@@ -5,6 +5,11 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 import os
+from sklearn.metrics import (
+    accuracy_score,
+    classification_report,
+    confusion_matrix
+)
 
 os.makedirs("../saved_models", exist_ok=True)
 
@@ -52,6 +57,16 @@ model = RandomForestClassifier(
 )
 
 model.fit(X_train, y_train)
+y_pred = model.predict(X_test)
+accuracy = accuracy_score(y_test, y_pred)
+
+print(f"Accuracy: {accuracy:.4f}")
+print("\nClassification Report:\n")
+
+print(classification_report(y_test, y_pred))
+print("\nConfusion Matrix:\n")
+
+print(confusion_matrix(y_test, y_pred))
 
 joblib.dump(
     model,

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import API from "../services/api";
+import StatCard from "../components/StatCard";
 
 function Dashboard() {
   const [stats, setStats] = useState(null);
@@ -19,18 +20,54 @@ function Dashboard() {
   }
 
   return (
-    <div>
-      <h1>EventFlow AI Dashboard</h1>
+    <div style={{ padding: "30px" }}>
+      <h1
+        style={{
+          textAlign: "center",
+          marginBottom: "40px",
+        }}
+      >
+        EventFlow AI Dashboard
+      </h1>
 
-      <h2>Total Events: {stats.total_events}</h2>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          gap: "20px",
+        }}
+      >
+        <StatCard
+          title="Total Events"
+          value={stats.total_events}
+          color="#2563eb"
+        />
 
-      <h2>Critical Events: {stats.critical_events}</h2>
+        <StatCard
+          title="Critical Events"
+          value={stats.critical_events}
+          color="#dc2626"
+        />
 
-      <h2>High Risk Events: {stats.high_events}</h2>
+        <StatCard
+          title="High Risk Events"
+          value={stats.high_events}
+          color="#ea580c"
+        />
 
-      <h2>Planned Events: {stats.planned_events}</h2>
+        <StatCard
+          title="Planned Events"
+          value={stats.planned_events}
+          color="#16a34a"
+        />
 
-      <h2>Unplanned Events: {stats.unplanned_events}</h2>
+        <StatCard
+          title="Unplanned Events"
+          value={stats.unplanned_events}
+          color="#7c3aed"
+        />
+      </div>
     </div>
   );
 }

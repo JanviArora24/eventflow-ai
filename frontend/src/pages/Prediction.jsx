@@ -23,10 +23,7 @@ function Prediction() {
     e.preventDefault();
 
     try {
-      const response = await API.post(
-        "/predict",
-        formData
-      );
+      const response = await API.post("/predict", formData);
 
       setResult(response.data);
     } catch (error) {
@@ -39,71 +36,67 @@ function Prediction() {
       <h1>Congestion Prediction</h1>
 
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="event_type"
-          placeholder="planned / unplanned"
-          onChange={handleChange}
-        />
+        <select name="event_type" onChange={handleChange}>
+          <option value="">Select Event Type</option>
+          <option value="planned">planned</option>
+          <option value="unplanned">unplanned</option>
+        </select>
 
-        <br /><br />
+        <br />
+        <br />
 
-        <input
-          type="text"
-          name="priority"
-          placeholder="High / Low"
-          onChange={handleChange}
-        />
+        <select name="priority" onChange={handleChange}>
+          <option value="">Select Priority</option>
+          <option value="High">High</option>
+          <option value="Low">Low</option>
+        </select>
 
-        <br /><br />
+        <br />
+        <br />
 
-        <input
-          type="text"
-          name="event_cause"
-          placeholder="Accident / Rally"
-          onChange={handleChange}
-        />
+        <select name="event_cause" onChange={handleChange}>
+          <option value="">Select Cause</option>
+          <option value="Accident">Accident</option>
+          <option value="Construction">Construction</option>
+          <option value="Festival">Festival</option>
+          <option value="Political Rally">Political Rally</option>
+          <option value="Sports Event">Sports Event</option>
+        </select>
 
-        <br /><br />
+        <br />
+        <br />
 
-        <input
-          type="text"
-          name="requires_road_closure"
-          placeholder="TRUE / FALSE"
-          onChange={handleChange}
-        />
+        <select name="requires_road_closure" onChange={handleChange}>
+          <option value="">Road Closure?</option>
+          <option value="TRUE">TRUE</option>
+          <option value="FALSE">FALSE</option>
+        </select>
 
-        <br /><br />
+        <br />
+        <br />
 
-        <input
-          type="text"
-          name="zone"
-          placeholder="Zone"
-          onChange={handleChange}
-        />
+        <select name="zone" onChange={handleChange}>
+          <option value="">Select Zone</option>
+          <option value="Central Zone 2">Central Zone 2</option>
+          <option value="West Zone 1">West Zone 1</option>
+          <option value="North Zone 2">North Zone 2</option>
+          <option value="South Zone 2">South Zone 2</option>
+        </select>
+        <br />
+        <br />
 
-        <br /><br />
-
-        <button type="submit">
-          Predict
-        </button>
+        <button type="submit">Predict</button>
       </form>
 
       {result && (
         <div style={{ marginTop: "20px" }}>
           <h2>Prediction Result</h2>
 
-          <p>
-            Risk: {result.predicted_risk}
-          </p>
+          <p>Risk: {result.predicted_risk}</p>
 
-          <p>
-            Officers: {result.officers}
-          </p>
+          <p>Officers: {result.officers}</p>
 
-          <p>
-            Barricades: {result.barricades}
-          </p>
+          <p>Barricades: {result.barricades}</p>
         </div>
       )}
     </div>
