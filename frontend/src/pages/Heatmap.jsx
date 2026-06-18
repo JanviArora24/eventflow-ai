@@ -1,12 +1,7 @@
 import { useEffect, useState } from "react";
 import API from "../services/api";
 
-import {
-  MapContainer,
-  TileLayer,
-  CircleMarker,
-  Popup,
-} from "react-leaflet";
+import { MapContainer, TileLayer, CircleMarker, Popup } from "react-leaflet";
 
 function Heatmap() {
   const [points, setPoints] = useState([]);
@@ -24,7 +19,20 @@ function Heatmap() {
   return (
     <div style={{ padding: "20px" }}>
       <h1>Event Hotspots Map</h1>
-
+      <div
+        style={{
+          display: "flex",
+          gap: "20px",
+          marginBottom: "20px",
+          justifyContent: "center",
+          fontSize: "18px",
+        }}
+      >
+        <span>🔴 Critical</span>
+        <span>🟠 High</span>
+        <span>🟡 Medium</span>
+        <span>🟢 Low</span>
+      </div>
       <MapContainer
         center={[12.9716, 77.5946]}
         zoom={11}
@@ -47,15 +55,13 @@ function Heatmap() {
               point.risk === "Critical"
                 ? "red"
                 : point.risk === "High"
-                ? "orange"
-                : point.risk === "Medium"
-                ? "yellow"
-                : "green"
+                  ? "orange"
+                  : point.risk === "Medium"
+                    ? "yellow"
+                    : "green"
             }
           >
-            <Popup>
-              Risk: {point.risk}
-            </Popup>
+            <Popup>Risk: {point.risk}</Popup>
           </CircleMarker>
         ))}
       </MapContainer>
