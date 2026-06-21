@@ -11,6 +11,9 @@ from app.routes.events_by_priority import router as priority_router
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(title="EventFlow AI")
+origins = [
+    "http://localhost:5173"
+]
 
 app.add_middleware(
     CORSMiddleware,
