@@ -12,7 +12,8 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(title="EventFlow AI")
 origins = [
-    "http://localhost:5173"
+    "http://localhost:5173",
+    "https://your-vercel-url.vercel.app",
 ]
 
 app.add_middleware(
